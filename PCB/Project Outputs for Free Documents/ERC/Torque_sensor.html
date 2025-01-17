@@ -1,0 +1,1467 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+        td, th {
+            padding: 0.5em;
+            text-align : left;
+        }
+        th {
+            background-color : #EEEEEE;
+        
+        }
+        th.column1, td.column1 {
+            width : 10em;
+        }
+
+        th.column2, td.column2 {
+            width : 30em;
+        }
+
+        table {
+            width : 100%;
+            font-size: 0.9em;
+        }
+
+		.header_holder {
+			Width = 100%;
+			border = 0px solid green;
+			padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+        }
+
+        .front_matter_column1 {
+			width : 5em;
+			font-weight: bold;
+        }
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+        .total_column1, .total_column {
+            font-weight : bold;
+        }
+        .total_column1 {
+            text-align : left;
+        }
+        .warning, .error {
+            color : red;
+            font-weight : bold;
+        }
+        tr.onmouseout_odd {
+            background-color : #white;
+        }
+        tr.onmouseout_even { 
+            background-color : #FAFAFA;
+        }
+        tr.onmouseover_odd, tr.onmouseover_even { 
+            background-color : #EEEEEE;
+        } 
+        a:link, a:visited, .q a:link,.q a:active,.q {
+            color: #21489e; 
+        }
+        a:link.callback, a:visited.callback { 
+            color: #21489e;
+        }
+        p.contents_level1 {
+            font-weight : bold;
+            font-size : 110%;
+            margin : 0.5em;
+        }
+        p.contents_level2 {
+            position : relative;
+            left : 20px;
+            margin : 0.5em;
+        }
+    </style><script type="text/javascript">
+        function coordToMils(coord) {
+            var number = coord / 10000;
+            
+            if (number != number.toFixed(3))
+                number = number.toFixed(3);
+            
+            return number + 'mil'
+        }
+
+        function coordToMM(coord) {
+            var number = 0.0254 * coord / 10000;
+            
+            if (number != number.toFixed(4))
+                number = number.toFixed(4);
+            
+            return number + 'mm'
+        }
+    
+        function convertCoord(coordNode, units) {
+            for (var i = 0; i < coordNode.childNodes.length; i++) {
+                coordNode.removeChild(coordNode.childNodes[i]);
+            }
+
+            var coord = coordNode.getAttribute('value');
+            if (coord != null) {
+                if (units == 'mm') {
+                    textNode = document.createTextNode(coordToMM(coord));
+                    coordNode.appendChild(textNode);
+                } else if (units == 'mil') {
+                    textNode = document.createTextNode(coordToMils(coord));
+                    coordNode.appendChild(textNode);
+                }
+            }
+        }
+    
+        function convertUnits(unitNode, units) {
+            for (var i = 0; i < unitNode.childNodes.length; i++) {
+                unitNode.removeChild(unitNode.childNodes[i]);
+            }
+        
+            textNode = document.createTextNode(units); 
+            unitNode.appendChild(textNode);
+        }
+    
+        function changeUnits(radio_input, units) {
+            if (radio_input.checked) {
+            
+                var elements = document.getElementsByName('coordinate');
+                if (elements) {
+                    for (var i = 0; i < elements.length; i++) {
+                        convertCoord(elements[i], units);
+                    }
+                }
+    
+                var elements = document.getElementsByName('units');
+                if (elements) {
+                    for (var i = 0; i < elements.length; i++) {
+                        convertUnits(elements[i], units);
+                    }
+                }
+            }
+        }
+    </script></head>
+<body onload=""><img ALT="Altium" src="
+            file://C:\Users\Public\Documents\Altium\AD24\Templates\AD_logo.png
+        "><h1>Electrical Rule Check Report</h1>
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">12/12/2024</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">4:35:14 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\pasir\Desktop\Github\TorqueSensor\TorqueSensor\PCB\Project Outputs for Free Documents\ERC\Torque_sensor.html" class="file"><acronym title="C:\Users\pasir\Desktop\Github\TorqueSensor\TorqueSensor\PCB\Project Outputs for Free Documents\ERC\Torque_sensor.html">C:\Users\pasir\Desktop\Github\TorqueSensor\TorqueSensor\PCB\Project Outputs for Free Documents\ERC\Torque_sensor.html</acronym></a></td>
+</tr>
+</table><a name="IDQFJABNOM2HTABQYDSMZZWT4GZIQSNEM0RBHRMNGFOEYF2JSKC1CP"><table>
+<tr>
+<th class="column1">Class</th>
+<th class="column2">Document</th>
+<th class="column3">Message</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">balancingBridge.SchDoc</td>
+<td class="column3">Component C1 0.1uF at 96.52mm,132.08mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Component C3 0.1uF at 103mm,155.42mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Component C7 0.1uF at 109.22mm,93.98mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Component C9 0.1uF at 81.5mm,149.5mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Component C11 0.1uF at 147.32mm,106.68mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Component C12 0.1uF at 159mm,72.92mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Component C15 0.1uF at 195.58mm,139.7mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Component C17 0.1uF at 83.82mm,127mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Component C22 0.1uF at 76mm,135.5mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">balancingBridge.SchDoc</td>
+<td class="column3">Component J1 B4B-XH-A(LF)(SN) at 33.02mm,137.16mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">balancingBridge.SchDoc</td>
+<td class="column3">Component J2 M20-9990246 at 160.02mm,116.84mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Component J3 M20-9990246 at 149.86mm,149.86mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Component J4 B4B-XH-A(LF)(SN) at 177.8mm,177.8mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Component J6 B2B-XH-A(LF)(SN) at 78.74mm,109.22mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Component J7 B3B-XH-A(LF)(SN) at 73.66mm,119.38mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">balancingBridge.SchDoc</td>
+<td class="column3">Component U1 AD5171BRJZ100-R2 at 114.3mm,119.38mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Component U2 AD8293G160ARJZ-R7 at 119.38mm,124.46mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Component U3 AD5171BRJZ100-R2 at 99.06mm,139.7mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Component U4 ATmega328P-AU at 93.98mm,154.94mm: Can't perform revision status validation: Please log in to your Altium account to connect to this server..</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Net NetC4_2 has no driving source (Pin C4-2, Pin C5-2, Pin R4-2, Pin U2-8)</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Net NetC8_2 has no driving source (Pin C8-2, Pin U2-5)</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">balancingBridge.SchDoc</td>
+<td class="column3">Net NetJ2_2 has no driving source (Pin J2-2, Pin U1-4)</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Net NetJ3_2 has no driving source (Pin J3-2, Pin U3-4)</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Main PCB.SchDoc</td>
+<td class="column3">Net V_bridge_fil has no driving source (Pin C2-2, Pin C5-1, Pin R2-2, Pin U2-1)</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Main PCB.SchDoc</td>
+<td class="column3">Nets Wire Bridge_Other has multiple names (Port Bridge_Other, Port V_Bridge_other, Sheet Entry balancingBridge-Bridge_Other(Output), Sheet Entry Instrumentation amplifier-V_Bridge_other(Input))</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Main PCB.SchDoc</td>
+<td class="column3">Nets Wire IA_Input has multiple names (Port IA_Input, Port Vout_Amplifier, Sheet Entry Amplifier-IA_Input(Input), Sheet Entry Instrumentation amplifier-Vout_Amplifier(Output))</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Main PCB.SchDoc</td>
+<td class="column3">Nets Wire V_bridge_fil has multiple names (Port V_bridge_fil, Port V_bridge_In, Sheet Entry balancingBridge-V_bridge_fil(Output), Sheet Entry Instrumentation amplifier-V_bridge_In(Input))</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid C3 at 103mm,155.42mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid C4 at 66.04mm,114.3mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid C5 at 96.52mm,116.84mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid C7 at 109.22mm,93.98mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid C8 at 147.32mm,76.2mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid C10 at 78.74mm,114.3mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid C11 at 147.32mm,106.68mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid C12 at 159mm,72.92mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid C13 at 111.76mm,55.88mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid C14 at 58.42mm,137.16mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid C15 at 195.58mm,139.7mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid C16 at 71.12mm,132.08mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid C17 at 83.82mm,127mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid C18 at 193.04mm,58.42mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid C19 at 134.62mm,55.88mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid C20 at 109.22mm,91.44mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid C21 at 172.72mm,83.82mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid IC1 at 121.92mm,88.9mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid IC2 at 127mm,109.22mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid IC3 at 88.9mm,121.92mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid J3 at 149.86mm,149.86mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid J4 at 177.8mm,177.8mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid J5 at 223.52mm,172.72mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid J6 at 78.74mm,109.22mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid J7 at 73.66mm,119.38mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Net Label MISO at 147.32mm,91.44mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Net Label MISO at 218.44mm,172.72mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Net Label MOSI at 147.32mm,93.98mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Net Label MOSI at 248.92mm,172.72mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Net Label RESET at 186.08mm,129.5mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Net Label RESET at 248.92mm,170.18mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Net Label SCK at 147.32mm,88.9mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Net Label SCK at 218.44mm,170.18mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid NetParameter at 113.5mm,109.22mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid NetParameter at 121mm,81.28mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid No ERC at 88.9mm,111.76mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid No ERC at 124.46mm,111.76mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid No ERC at 124.46mm,114.3mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid No ERC at 124.46mm,116.84mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid No ERC at 139.7mm,96.52mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid No ERC at 139.7mm,99.06mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid No ERC at 139.7mm,101.6mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid No ERC at 139.7mm,106.68mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid No ERC at 139.7mm,109.22mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid No ERC at 139.7mm,111.76mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid No ERC at 139.7mm,114.3mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid No ERC at 139.7mm,116.84mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid No ERC at 139.7mm,119.38mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid No ERC at 139.7mm,121.92mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid No ERC at 139.7mm,124.46mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid No ERC at 139.7mm,137.16mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid No ERC at 139.7mm,139.7mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid No ERC at 139.7mm,142.24mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid No ERC at 139.7mm,144.78mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid No ERC at 139.7mm,149.86mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid No ERC at 139.7mm,152.4mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Pin C3-1 at 103mm,155.42mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Pin C4-1 at 66.04mm,114.3mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Pin C5-1 at 96.52mm,116.84mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Pin C6-2 at 167.5mm,116.7mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Pin C7-1 at 109.22mm,93.98mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Pin C7-2 at 109.22mm,99.06mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Pin C8-1 at 147.32mm,76.2mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Pin C8-2 at 134.62mm,76.2mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin C9-2 at 81.5mm,154.58mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin C10-1 at 78.74mm,114.3mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin C10-2 at 78.74mm,127mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin C11-1 at 147.32mm,106.68mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin C11-2 at 142.24mm,106.68mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin C12-1 at 159mm,72.92mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin C13-1 at 111.76mm,55.88mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin C13-2 at 111.76mm,68.58mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin C14-1 at 58.42mm,137.16mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin C14-2 at 58.42mm,149.86mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin C15-1 at 195.58mm,139.7mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin C15-2 at 195.58mm,144.78mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin C16-1 at 71.12mm,132.08mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin C16-2 at 71.12mm,144.78mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin C17-1 at 83.82mm,127mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin C17-2 at 83.82mm,132.08mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin C18-1 at 193.04mm,58.42mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin C18-2 at 193.04mm,71.12mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin C19-1 at 134.62mm,55.88mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin C19-2 at 134.62mm,68.58mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid Pin C20-1 at 109.22mm,91.44mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid Pin C20-2 at 109.22mm,104.14mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid Pin C21-1 at 172.72mm,83.82mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid Pin C21-2 at 172.72mm,96.52mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid Pin C22-2 at 76mm,140.58mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin IC1-1 at 121.92mm,88.9mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin IC1-2 at 121.92mm,86.36mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin IC1-3 at 121.92mm,83.82mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin IC1-4 at 147.32mm,88.9mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin IC1-5 at 147.32mm,86.36mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid Pin IC2-1 at 127mm,109.22mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid Pin IC2-2 at 127mm,106.68mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid Pin IC2-3 at 160.02mm,109.22mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid Pin IC3-1 at 88.9mm,121.92mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid Pin IC3-2 at 88.9mm,119.38mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid Pin IC3-3 at 88.9mm,116.84mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid Pin IC3-4 at 88.9mm,114.3mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid Pin IC3-9 at 124.46mm,119.38mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid Pin IC3-10 at 124.46mm,121.92mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin J3-1 at 149.86mm,149.86mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin J3-2 at 149.86mm,154.94mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin J4-1 at 177.8mm,177.8mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin J4-2 at 177.8mm,172.72mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin J4-3 at 177.8mm,167.64mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin J4-4 at 177.8mm,162.56mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin J5-1 at 223.52mm,172.72mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin J5-2 at 243.84mm,172.72mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin J5-3 at 223.52mm,170.18mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin J5-4 at 243.84mm,170.18mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin J5-5 at 223.52mm,167.64mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin J5-6 at 243.84mm,167.64mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid Pin J6-1 at 78.74mm,109.22mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid Pin J6-2 at 78.74mm,104.14mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid Pin J7-1 at 73.66mm,119.38mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid Pin J7-2 at 73.66mm,114.3mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid Pin J7-3 at 73.66mm,109.22mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Pin R4-1 at 45.72mm,129.54mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin R5-1 at 162.56mm,119.38mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin R5-2 at 162.56mm,137.16mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin R6-1 at 142.24mm,116.84mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin R6-2 at 160.02mm,116.84mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin R7-1 at 195.58mm,149.86mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin R7-2 at 195.58mm,167.64mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid Pin R8-1 at 132.08mm,119.38mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid Pin R8-2 at 149.86mm,119.38mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid Pin R9-1 at 157.48mm,116.84mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid Pin R9-2 at 157.48mm,99.06mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin S1-A1 at 208.28mm,144.78mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin S1-B1 at 238.76mm,144.78mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin S1-C1 at 208.28mm,142.24mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin S1-D1 at 238.76mm,142.24mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Pin U2-1 at 119.38mm,116.84mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Pin U2-2 at 154.94mm,106.68mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Pin U2-3 at 119.38mm,106.68mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Pin U2-4 at 154.94mm,124.46mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Pin U2-5 at 119.38mm,111.76mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Pin U2-6 at 154.94mm,119.38mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Pin U2-7 at 119.38mm,124.46mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Pin U2-8 at 119.38mm,119.38mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin U3-2 at 99.06mm,139.7mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin U3-4 at 129.54mm,139.7mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin U3-5 at 129.54mm,137.16mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin U3-6 at 99.06mm,124.46mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin U3-7 at 99.06mm,129.54mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Pin U3-8 at 99.06mm,134.62mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin U4-3 at 88.9mm,88.9mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin U4-4 at 88.9mm,149.86mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin U4-5 at 88.9mm,86.36mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin U4-6 at 88.9mm,152.4mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin U4-7 at 139.7mm,86.36mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin U4-8 at 139.7mm,83.82mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin U4-15 at 139.7mm,93.98mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin U4-16 at 139.7mm,91.44mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin U4-17 at 139.7mm,88.9mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin U4-18 at 88.9mm,144.78mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin U4-20 at 88.9mm,139.7mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin U4-21 at 88.9mm,83.82mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin U4-27 at 139.7mm,134.62mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin U4-28 at 139.7mm,132.08mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin U4-29 at 139.7mm,129.54mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin Y1-1 at 149.86mm,71.12mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin Y1-2 at 180.34mm,71.12mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin Y1-3 at 180.34mm,73.66mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Pin Y1-4 at 149.86mm,73.66mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Port IA_Input at 93.98mm,73.66mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Port output at 68.58mm,88.9mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Port V_bridge_In at 73.66mm,116.84mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Port V_Bridge_other at 25.4mm,129.54mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Port Vout_Amplifier at 172.72mm,124.46mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">balancingBridge.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 56.5mm,93.62mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 60.96mm,121.92mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 66.04mm,104.14mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 71.12mm,121.92mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 78.74mm,78.74mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 83.82mm,119.38mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 88.9mm,78.74mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 96.52mm,119.38mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 103mm,148.44mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 109.22mm,88.9mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 111.76mm,53.34mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 132.08mm,124.46mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 134.62mm,53.34mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 137.16mm,81.28mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 154.94mm,157.48mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 157.48mm,99.06mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 167.5mm,101.6mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 180.34mm,134.62mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 193.04mm,53.34mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Power Object GND at 251.46mm,165.1mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Power Object REF at 109.22mm,106.68mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid Power Object REF at 157.48mm,119.38mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid Power Object VCC1 at 104.14mm,109.22mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">balancingBridge.SchDoc</td>
+<td class="column3">Off grid Power Object VCC at 46.34mm,73.3mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Power Object VCC at 58.42mm,154.94mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Power Object VCC at 71.12mm,144.78mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid Power Object VCC at 103mm,167.64mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Power.SchDoc</td>
+<td class="column3">Off grid Power Object VCC at 172.72mm,101.6mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Power Object VCC at 195.58mm,167.64mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid R4 at 45.72mm,129.54mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid R5 at 162.56mm,119.38mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid R6 at 142.24mm,116.84mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid R7 at 195.58mm,149.86mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid R8 at 132.08mm,119.38mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Offset.SchDoc</td>
+<td class="column3">Off grid R9 at 157.48mm,116.84mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid S1 at 208.28mm,144.78mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Main PCB.SchDoc</td>
+<td class="column3">Off grid Sheet Entry Amplifier-IA_Input(Input) at 161.6mm,136.2mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Main PCB.SchDoc</td>
+<td class="column3">Off grid Sheet Entry Amplifier-output(Output) at 212.4mm,133.66mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Main PCB.SchDoc</td>
+<td class="column3">Off grid Sheet Entry balancingBridge-Bridge_Other(Output) at 21.9mm,134.5mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Main PCB.SchDoc</td>
+<td class="column3">Off grid Sheet Entry balancingBridge-V_bridge_fil(Output) at 70.16mm,136.2mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Main PCB.SchDoc</td>
+<td class="column3">Off grid Sheet Entry Instrumentation amplifier-V_bridge_In(Input) at 90.48mm,136.2mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Main PCB.SchDoc</td>
+<td class="column3">Off grid Sheet Entry Instrumentation amplifier-V_Bridge_other(Input) at 90.48mm,131.12mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Main PCB.SchDoc</td>
+<td class="column3">Off grid Sheet Entry Instrumentation amplifier-Vout_Amplifier(Output) at 136.2mm,136.2mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Main PCB.SchDoc</td>
+<td class="column3">Off grid Sheet Symbol Amplifier at 161.6mm,148.9mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Main PCB.SchDoc</td>
+<td class="column3">Off grid Sheet Symbol balancingBridge at 21.9mm,148.9mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Main PCB.SchDoc</td>
+<td class="column3">Off grid Sheet Symbol Instrumentation amplifier at 90.48mm,148.9mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Main PCB.SchDoc</td>
+<td class="column3">Off grid Sheet Symbol MicroController at 230.4mm,154.74mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Main PCB.SchDoc</td>
+<td class="column3">Off grid Sheet Symbol Offset at 37.4mm,179.12mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Main PCB.SchDoc</td>
+<td class="column3">Off grid Sheet Symbol Power at 67.08mm,91.74mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">Instrumentation amplifier.SchDoc</td>
+<td class="column3">Off grid U2 at 119.38mm,124.46mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">Amplifier.SchDoc</td>
+<td class="column3">Off grid U3 at 99.06mm,139.7mm</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid U4 at 93.98mm,154.94mm</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Warning</td>
+<td class="column2">microController.SchDoc</td>
+<td class="column3">Off grid Y1 at 149.86mm,73.66mm</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

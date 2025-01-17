@@ -1,0 +1,9 @@
+Change Net Name : Old Net Name=NetC2_2 New Net Name=V_bridge_fil
+Change Net Name : Old Net Name=NetC6_2 New Net Name=IA_Input
+Change Net Name : Old Net Name=NetC7_2 New Net Name=REF
+Change Net Name : Old Net Name=NetC10_1 New Net Name=Amplifier Input
+Change Net Name : Old Net Name=NetJ1_2 New Net Name=Bridge_Other
+Added Rule: Name=Schematic Supply Nets
+Added Rule: Name=Schematic Supply Nets_1
+Added Rule: Name=Schematic Supply Nets_2
+Added Rule: Name=Schematic Supply Nets_3

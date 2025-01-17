@@ -1,0 +1,60 @@
+Altium Designer Pick and Place Locations
+C:\Users\pasir\Desktop\Github\TorqueSensor\TorqueSensor\PCB\Project Outputs for Free Documents\Pick Place\Pick Place for PCB2.txt
+
+========================================================================================================================
+File Design Information:
+
+Date:       12/12/24
+Time:       16:35
+Revision:   1531b07ae241fad1e69182c409c96443ce988372
+Variant:    No variations
+Units used: mil
+
+Designator Comment              Layer    Footprint                     Center-X(mil) Center-Y(mil) Rotation Description                                                                                                  
+C12        0.1uF                TopLayer FP-C1206C-EB-MFG              979.000       819.000       180      "CAP CER 0.1UF 25V C0G/NP0 1206"                                                                             
+C22        0.1uF                TopLayer FP-C1206C-EB-MFG              828.000       1522.000      270      "CAP CER 0.1UF 25V C0G/NP0 1206"                                                                             
+C9         0.1uF                TopLayer FP-C1206C-EB-MFG              598.000       460.000       0        "CAP CER 0.1UF 25V C0G/NP0 1206"                                                                             
+C1         0.1uF                TopLayer FP-C1206C-EB-MFG              928.000       1137.000      180      "CAP CER 0.1UF 25V C0G/NP0 1206"                                                                             
+R9         ERA-8AEB103V         TopLayer RESC3216X70N                  679.000       1107.055      90       Resistor                                                                                                     
+R8         ERA-8AEB272V         TopLayer RESC3216X70N                  772.000       1106.000      270      Resistor                                                                                                     
+J7         B3B-XH-A(LF)(SN)     TopLayer FP-B3B-XH-A_LF_SN-MFG         1529.575      1638.000      0        "CONN HEADER VERT 3POS 2.5MM"                                                                                
+IC3        MCP4728-E_UN         TopLayer SOP50P490X110-10N             711.000       1341.000      270      "Integrated Circuit"                                                                                         
+R7         ERA-8AEB103V         TopLayer RESC3216X70N                  705.000       180.000       90       Resistor                                                                                                     
+IC2        BD450M5FP-CE2        TopLayer ROHM_TO-252-3                 374.000       595.968       0        "Integrated Circuit"                                                                                         
+Y1         CX3225SA40000D0PTWCC TopLayer CX3225SA40000D0PTWCC          2267.583      975.323       270      "Crystal or Oscillator"                                                                                      
+U4         ATmega328P-AU        TopLayer 32A_M                         1904.236      809.323       180      "8-bit AVR Microcontroller, 32KB Flash, 1KB EEPROM, 2KB SRAM, 32-pin TQFP, Industrial Grade (-40°C to 85°C)" 
+U3         AD5171BRJZ100-R2     TopLayer FP-RJ-8-IPC_A                 795.000       442.000       0        "AD5171BRJZ100-R2 Digital Potentiometer 64POS 100kOhm Single Automotive 8-Pin SOT-23 T/R"                    
+U2         AD8293G160ARJZ-R7    TopLayer FP-RJ-8-IPC_B                 416.000       1203.000      90       "IC INST AMP 1 CIRCUIT SOT23-8"                                                                              
+U1         AD5171BRJZ100-R2     TopLayer FP-RJ-8-IPC_A                 891.795       1290.295      90       "AD5171BRJZ100-R2 Digital Potentiometer 64POS 100kOhm Single Automotive 8-Pin SOT-23 T/R"                    
+S1         TS-1187A-B-A-B       TopLayer TS1187ABAB                    1564.000      568.000       90       Switch                                                                                                       
+R6         ERA-8AEB103V         TopLayer RESC3216X70N                  648.000       564.000       0        Resistor                                                                                                     
+R5         ERA8AEB102V          TopLayer RESC3216X70N                  888.000       559.000       0        Resistor                                                                                                     
+R4         CHP1206AFX-4701ELF   TopLayer RESC3116X65N                  281.000       1377.882      270      Resistor                                                                                                     
+R3         ERA-8AEB103V         TopLayer RESC3216X70N                  1021.000      1515.000      270      Resistor                                                                                                     
+R2         CHP1206AFX-4701ELF   TopLayer RESC3116X65N                  860.000       1007.000      270      Resistor                                                                                                     
+R1         ERA-8AEB103V         TopLayer RESC3216X70N                  924.000       1516.000      270      Resistor                                                                                                     
+J6         B2B-XH-A(LF)(SN)     TopLayer FP-B2B-XH-A_LF_SN-MFG         407.787       164.000       0        "CONN HEADER VERT 2POS 2.5MM"                                                                                
+J4         B4B-XH-A(LF)(SN)     TopLayer FP-B4B-XH-A_LF_SN-MFG         1700.213      123.000       0        "CONN HEADER VERT 4POS 2.5MM"                                                                                
+J3         M20-9990246          TopLayer FP-M20-9990246-MFG            919.000       206.000       180      "CONN HEADER VERT 2POS 2.54MM"                                                                               
+J5         87914-0606           TopLayer HDRV6W69P254_2X3_762X498X859P 1912.000      1204.000      90       Connector                                                                                                    
+J2         M20-9990246          TopLayer FP-M20-9990246-MFG            1151.000      1677.000      0        "CONN HEADER VERT 2POS 2.54MM"                                                                               
+J1         B4B-XH-A(LF)(SN)     TopLayer FP-B4B-XH-A_LF_SN-MFG         505.638       1598.000      0        "CONN HEADER VERT 4POS 2.5MM"                                                                                
+IC1        OPA336NA_3K          TopLayer SOT95P280X145-5N              776.000       774.000       0        "Integrated Circuit"                                                                                         
+C21        12063D226MAT2A       TopLayer CAPC3216X229N                 512.000       358.000       180      Capacitor                                                                                                    
+C20        12063C105MAT2A       TopLayer CAPC3216X178N                 330.000       357.000       180      Capacitor                                                                                                    
+C19        12063A220JAT2A       TopLayer CAPC3216X94N                  2087.000      1042.000      270      Capacitor                                                                                                    
+C18        12063A220JAT2A       TopLayer CAPC3216X94N                  2248.000      823.000       180      Capacitor                                                                                                    
+C17        0.1uF                TopLayer FP-C1206C-EB-MFG              1583.000      791.000       0        "CAP CER 0.1UF 25V C0G/NP0 1206"                                                                             
+C15        0.1uF                TopLayer FP-C1206C-EB-MFG              1945.000      478.118       90       "CAP CER 0.1UF 25V C0G/NP0 1206"                                                                             
+C16        CGA5L1X7R1C106K160AC TopLayer CAPC3216X190N                 1590.000      898.000       0        Capacitor                                                                                                    
+C14        CGA5L1X7R1C106K160AC TopLayer CAPC3216X190N                 2245.000      712.000       180      Capacitor                                                                                                    
+C13        12063C334MAT2A       TopLayer CAPC3216X127N                 714.000       660.000       180      Capacitor                                                                                                    
+C11        0.1uF                TopLayer FP-C1206C-EB-MFG              578.000       741.000       90       "CAP CER 0.1UF 25V C0G/NP0 1206"                                                                             
+C10        12063C334MAT2A       TopLayer CAPC3216X127N                 786.000       881.000       0        Capacitor                                                                                                    
+C8         12063A4R7DAT2A       TopLayer CAPC3216X94N                  522.000       1388.000      270      Capacitor                                                                                                    
+C7         0.1uF                TopLayer FP-C1206C-EB-MFG              425.000       1054.000      0        "CAP CER 0.1UF 25V C0G/NP0 1206"                                                                             
+C6         12063C334MAT2A       TopLayer CAPC3216X127N                 540.000       1189.000      270      Capacitor                                                                                                    
+C5         12065C474JAT2A       TopLayer CAPC3216X152N                 285.000       1115.000      90       Capacitor                                                                                                    
+C4         12063C224JAT2A       TopLayer CAPC3216X94N                  187.000       1319.000      270      Capacitor                                                                                                    
+C3         0.1uF                TopLayer FP-C1206C-EB-MFG              372.000       1379.000      270      "CAP CER 0.1UF 25V C0G/NP0 1206"                                                                             
+C2         12063C224JAT2A       TopLayer CAPC3216X94N                  974.000       989.000       270      Capacitor                                                                                                    

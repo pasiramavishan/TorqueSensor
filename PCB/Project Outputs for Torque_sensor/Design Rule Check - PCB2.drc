@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
-PCB File : C:\Users\pasir\Desktop\Torque Sensor  2\PCB2.PcbDoc
-Date     : 5/28/2024
-Time     : 2:35:37 PM
+PCB File : C:\Users\pasir\Desktop\Github\TorqueSensor\TorqueSensor\PCB\PCB2.PcbDoc
+Date     : 12/13/2024
+Time     : 10:17:28 AM
 
 Processing Rule : Clearance Constraint (Gap=0.203mm) (OnLayer('Top Layer')),(All)
 Rule Violations :0
@@ -12,6 +12,9 @@ Rule Violations :0
 Processing Rule : Clearance Constraint (Gap=0.203mm) (OnLayer('Bottom Layer')),(All)
 Rule Violations :0
 
+Processing Rule : Clearance Constraint (Gap=15mm) (All),(InNet('GND'))
+Rule Violations :0
+
 Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
 Rule Violations :0
 
@@ -19,6 +22,9 @@ Processing Rule : Un-Routed Net Constraint ( (All) )
 Rule Violations :0
 
 Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.25mm) (Max=0.4mm) (Preferred=0.35mm) (InNetClass('PowerNets'))
 Rule Violations :0
 
 Processing Rule : Width Constraint (Min=0.089mm) (Max=2.54mm) (Preferred=0.381mm) (All)
@@ -57,4 +63,4 @@ Rule Violations :0
 
 Violations Detected : 0
 Waived Violations : 0
-Time Elapsed        : 00:00:01
+Time Elapsed        : 00:00:02
